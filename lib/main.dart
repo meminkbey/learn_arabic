@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learn_arabic/data/letters.dart';
 
 import 'models/letter.dart';
-
-const ba = Letter(id: 2, arabic: 'ب', name: 'Ba');
 
 // Entry point of the app. Flutter calls main() first.
 void main() {
@@ -21,7 +20,7 @@ class LearnArabicApp extends StatelessWidget {
         appBar: AppBar(title: const Text('Learn Arabic')),
         body: Center(
           child: Text(
-            ba.arabic,
+            letterList[0].arabic,
             style: const TextStyle(fontSize: 60, color: Colors.teal),
           ),
         ),
