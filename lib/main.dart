@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_arabic/data/letters.dart';
+import 'package:learn_arabic/screens/letter_list_screen.dart';
 
 import 'models/letter.dart';
 
@@ -16,15 +17,7 @@ class LearnArabicApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Learn Arabic',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Learn Arabic')),
-        body: Center(
-          child: Text(
-            letterList[0].arabic,
-            style: const TextStyle(fontSize: 60, color: Colors.teal),
-          ),
-        ),
-      ),
+      home: LetterListScreen(),
     );
   }
 }
