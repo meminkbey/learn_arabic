@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_arabic/data/letters.dart';
 import 'package:learn_arabic/models/letter.dart';
+import 'package:learn_arabic/screens/letter_detail_screen.dart';
 
 class LetterListScreen extends StatelessWidget {
   const LetterListScreen({super.key});
@@ -17,6 +18,14 @@ class LetterListScreen extends StatelessWidget {
             leading: Text(letter.arabic, style: TextStyle(fontSize: 32)),
             title: Text(letter.name, style: TextStyle(fontSize: 32)),
             subtitle: Text("${letter.id}"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LetterDetailScreen(letter: letter),
+                ),
+              );
+            },
           );
         },
       ),
