@@ -15,9 +15,6 @@ class LearnArabicApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Learn Arabic',
-      home: LetterListScreen(),
-    );
+    return MaterialApp(title: 'Learn Arabic', home: LetterListScreen());
   }
 }
