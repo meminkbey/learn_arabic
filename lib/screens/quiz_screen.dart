@@ -13,16 +13,19 @@ class QuizScreen extends StatefulWidget {
 
 class _QuizScreenState extends State<QuizScreen> {
   late Letter _question;
+  late List<Letter> _options;
 
   @override
   void initState() {
     super.initState();
-    _pickRandomLetter();
+    _newQuestion();
   }
 
-  //Picks a random letter as the current question
-  void _pickRandomLetter() {
-    _question = letterList[Random().nextInt(letterList.length)];
+  // Prepares a new question: 4 options, one of them is the answer.
+  void _newQuestion() {
+    final shuffled = List<Letter>.from(letterList)..shuffle();
+    _options = shuffled.take(4).toList();
+    _question = _options[Random().nextInt(_options.length)];
   }
 
   @override
@@ -34,10 +37,12 @@ class _QuizScreenState extends State<QuizScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(_question.arabic, style: const TextStyle(fontSize: 120)),
+            for (final option in _options)
+              ElevatedButton(onPressed: () {}, child: Text(option.name)),
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                  _pickRandomLetter();
+                  _newQuestion();
                 });
               },
               child: const Text("New Letter"),
