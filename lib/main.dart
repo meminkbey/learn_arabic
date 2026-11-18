@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learn_arabic/data/letters.dart';
 import 'package:learn_arabic/screens/letter_list_screen.dart';
 
-import 'models/letter.dart';
 
 // Entry point of the app. Flutter calls main() first.
 void main() {
