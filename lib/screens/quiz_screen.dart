@@ -38,6 +38,23 @@ class _QuizScreenState extends State<QuizScreen> {
     });
   }
 
+  // Returns the background color for an option button.
+  // null means "use the default button color".
+  Color? _buttonColor(Letter option) {
+    if (_selected == null) {
+      return null;
+    }
+    if (option == _question) {
+      return Colors.green;
+    }
+
+    if (option == _selected) {
+      return Colors.red;
+    }
+
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +66,9 @@ class _QuizScreenState extends State<QuizScreen> {
             Text(_question.arabic, style: const TextStyle(fontSize: 120)),
             for (final option in _options)
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _buttonColor(option),
+                ),
                 onPressed: () => _checkAnswer(option),
                 child: Text(option.name),
               ),
